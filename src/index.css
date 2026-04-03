@@ -1,0 +1,156 @@
+/* Base (équivalent au <style> global de l’export Base44) */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  background: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lineDown {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes zoomBg {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-bg {
+  animation: zoomBg 8s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none !important;
+  }
+  .nav-cta {
+    display: none !important;
+  }
+  .nav-burger {
+    display: flex !important;
+  }
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+  .cuisine-grid {
+    grid-template-columns: 1fr !important;
+    gap: 4rem !important;
+  }
+  .ambiance-strip {
+    height: 260px !important;
+    gap: 2px !important;
+  }
+  .concert-section {
+    flex-direction: column !important;
+  }
+  .concert-photo {
+    min-height: 50vw !important;
+  }
+  .concert-content {
+    padding: 4rem 2rem !important;
+  }
+  .reviews-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+  .sticky-call span {
+    display: none;
+  }
+  .sticky-call.sticky-call--compact {
+    padding: 1rem;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .ambiance-strip {
+    height: 200px !important;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .reviews-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* Menu mobile plein écran */
+.mobile-menu-panel {
+  position: fixed;
+  inset: 0;
+  top: 72px;
+  background: rgba(10, 10, 10, 0.98);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+.mobile-menu-panel a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.sticky-call {
+  transition: opacity 0.3s, transform 0.3s;
+}
