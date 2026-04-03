@@ -127,12 +127,13 @@ export function Cuisine() {
           </p>
           <h2
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              fontWeight: 300,
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2.1rem, 4.2vw, 3.15rem)',
+              fontWeight: 600,
               color: '#0a0a0a',
               lineHeight: 1.2,
               margin: '0 0 2rem',
+              letterSpacing: '0.01em',
             }}
           >
             Fait maison,

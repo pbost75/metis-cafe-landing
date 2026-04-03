@@ -30,12 +30,13 @@ export function Contact() {
           </p>
           <h2
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              fontWeight: 300,
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2.1rem, 4.2vw, 3.15rem)',
+              fontWeight: 600,
               color: '#fff',
               lineHeight: 1.2,
               margin: '0 0 3rem',
+              letterSpacing: '0.01em',
             }}
           >
             Venez nous rendre
@@ -158,9 +159,9 @@ export function Contact() {
                 </p>
                 <p
                   style={{
-                    fontFamily: '"Cormorant Garamond", serif',
+                    fontFamily: 'var(--font-display)',
                     fontSize: '1.3rem',
-                    fontWeight: 400,
+                    fontWeight: 600,
                     color: '#0a0a0a',
                     margin: 0,
                   }}

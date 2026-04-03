@@ -30,12 +30,13 @@ export function Restaurant() {
           </p>
           <h2
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              fontWeight: 300,
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2.1rem, 4.2vw, 3.15rem)',
+              fontWeight: 600,
               color: '#0a0a0a',
               lineHeight: 1.2,
               margin: '0 0 2rem',
+              letterSpacing: '0.01em',
             }}
           >
             Une brasserie au cœur
@@ -100,9 +101,9 @@ export function Restaurant() {
                 </p>
                 <p
                   style={{
-                    fontFamily: '"Cormorant Garamond", serif',
+                    fontFamily: 'var(--font-serif)',
                     fontSize: '1.1rem',
-                    fontWeight: 400,
+                    fontWeight: 500,
                     color: '#0a0a0a',
                   }}
                 >
@@ -133,9 +134,9 @@ export function Restaurant() {
           >
             <p
               style={{
-                fontFamily: '"Cormorant Garamond", serif',
+                fontFamily: 'var(--font-display)',
                 fontSize: '2rem',
-                fontWeight: 300,
+                fontWeight: 600,
                 margin: 0,
                 lineHeight: 1,
               }}

@@ -39,12 +39,12 @@ export function Navigation() {
           href="#top"
           onClick={close}
           style={{
-            fontFamily: '"Cormorant Garamond", serif',
+            fontFamily: 'var(--font-display)',
             fontSize: '1.5rem',
-            fontWeight: 400,
+            fontWeight: 600,
             color: '#fff',
             textDecoration: 'none',
-            letterSpacing: '0.12em',
+            letterSpacing: '0.08em',
             textTransform: 'uppercase',
           }}
         >

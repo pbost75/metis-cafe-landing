@@ -88,12 +88,13 @@ export function Concerts() {
           </p>
           <h2
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
-              fontWeight: 300,
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2.25rem, 4.2vw, 3.55rem)',
+              fontWeight: 600,
               color: '#fff',
               lineHeight: 1.15,
               margin: '0 0 1.8rem',
+              letterSpacing: '0.01em',
             }}
           >
             La musique
@@ -122,9 +123,9 @@ export function Concerts() {
                 <div>
                   <p
                     style={{
-                      fontFamily: '"Cormorant Garamond", serif',
+                      fontFamily: 'var(--font-display)',
                       fontSize: '1.125rem',
-                      fontWeight: 400,
+                      fontWeight: 600,
                       color: '#fff',
                       margin: '0 0 0.25rem',
                     }}

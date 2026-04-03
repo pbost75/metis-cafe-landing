@@ -58,13 +58,14 @@ export function Hero() {
         </p>
         <h1
           style={{
-            fontFamily: '"Cormorant Garamond", serif',
-            fontSize: 'clamp(3rem, 8vw, 6rem)',
-            fontWeight: 300,
+            fontFamily: 'var(--font-display)',
+            fontSize: 'clamp(3.25rem, 8.5vw, 6.25rem)',
+            fontWeight: 600,
             color: '#fff',
             margin: '0 0 0.5rem',
-            lineHeight: 1.1,
-            letterSpacing: '0.05em',
+            lineHeight: 1.08,
+            letterSpacing: '0.02em',
+            textShadow: '0 2px 40px rgba(0,0,0,0.35)',
             animation: 'fadeUp 0.8s ease 0.4s both',
           }}
         >
@@ -72,13 +73,13 @@ export function Hero() {
         </h1>
         <p
           style={{
-            fontFamily: '"Cormorant Garamond", serif',
-            fontSize: 'clamp(1rem, 3vw, 1.5rem)',
-            fontWeight: 300,
+            fontFamily: 'var(--font-display)',
+            fontSize: 'clamp(1.05rem, 3vw, 1.55rem)',
+            fontWeight: 500,
             fontStyle: 'italic',
-            color: 'rgba(255,255,255,0.85)',
+            color: 'rgba(255,255,255,0.9)',
             margin: '0 0 2.8rem',
-            letterSpacing: '0.05em',
+            letterSpacing: '0.03em',
             animation: 'fadeUp 0.8s ease 0.6s both',
           }}
         >

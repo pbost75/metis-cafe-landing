@@ -17,12 +17,12 @@ export function Footer() {
         <div>
           <p
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontSize: '1.2rem',
-              fontWeight: 400,
+              fontFamily: 'var(--font-display)',
+              fontSize: '1.25rem',
+              fontWeight: 600,
               color: '#fff',
               margin: '0 0 0.3rem',
-              letterSpacing: '0.1em',
+              letterSpacing: '0.06em',
             }}
           >
             Métis Café

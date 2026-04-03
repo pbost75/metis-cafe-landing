@@ -24,11 +24,12 @@ export function Menu() {
           </p>
           <h2
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              fontWeight: 300,
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2.1rem, 4.2vw, 3.15rem)',
+              fontWeight: 600,
               color: '#0a0a0a',
               margin: '0 0 1rem',
+              letterSpacing: '0.01em',
             }}
           >
             Une cuisine sincère
@@ -103,9 +104,9 @@ export function Menu() {
               <div style={{ flex: '1 1 0' }}>
                 <p
                   style={{
-                    fontFamily: '"Cormorant Garamond", serif',
+                    fontFamily: 'var(--font-serif)',
                     fontSize: '1.15rem',
-                    fontWeight: 400,
+                    fontWeight: 500,
                     color: '#0a0a0a',
                     margin: '0 0 0.4rem',
                   }}
@@ -129,9 +130,9 @@ export function Menu() {
               </div>
               <span
                 style={{
-                  fontFamily: '"Cormorant Garamond", serif',
+                  fontFamily: 'var(--font-serif)',
                   fontSize: '1.1rem',
-                  fontWeight: 400,
+                  fontWeight: 500,
                   color: '#0a0a0a',
                   whiteSpace: 'nowrap',
                   paddingTop: '0.1rem',
