@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react'
 import { CUISINE_SLIDES } from '../assets'
 
 const SLIDE_INTERVAL_MS = 5500
@@ -14,13 +14,15 @@ export function Cuisine() {
     setActive((i + CUISINE_SLIDES.length) % CUISINE_SLIDES.length)
   }, [])
 
+  // Un délai par slide (setTimeout relancé à chaque changement) : le minuteur reste aligné
+  // avec la barre de progression et un clic sur une pastille redémarre un cycle complet.
   useEffect(() => {
     if (reducedMotion.current || paused) return
-    const id = window.setInterval(() => {
+    const id = window.setTimeout(() => {
       setActive((i) => (i + 1) % CUISINE_SLIDES.length)
     }, SLIDE_INTERVAL_MS)
-    return () => window.clearInterval(id)
-  }, [paused])
+    return () => window.clearTimeout(id)
+  }, [active, paused])
 
   return (
     <section style={{ background: '#fff', padding: '8rem 2rem' }}>
@@ -91,20 +93,25 @@ export function Cuisine() {
                     <button
                       key={i}
                       type="button"
+                      className={
+                        isOn ? 'cuisine-slide-dot cuisine-slide-dot--active' : 'cuisine-slide-dot cuisine-slide-dot--inactive'
+                      }
                       aria-label={`Photo ${i + 1} sur ${CUISINE_SLIDES.length}`}
                       aria-current={isOn ? 'true' : undefined}
                       onClick={() => go(i)}
-                      style={{
-                        width: isOn ? 24 : 6,
-                        height: 6,
-                        borderRadius: 3,
-                        background: isOn ? '#fff' : 'rgba(255,255,255,0.45)',
-                        border: 'none',
-                        cursor: 'pointer',
-                        padding: 0,
-                        transition: 'width 0.35s ease, background 0.25s ease',
-                      }}
-                    />
+                    >
+                      {/* key={active} : relance l’animation de remplissage à chaque nouvelle slide */}
+                      {isOn ? (
+                        <span
+                          key={active}
+                          className={`cuisine-slide-dot-fill${paused ? ' cuisine-slide-dot-fill--paused' : ''}`}
+                          style={
+                            { '--cuisine-slide-ms': `${SLIDE_INTERVAL_MS}ms` } as CSSProperties
+                          }
+                          aria-hidden
+                        />
+                      ) : null}
+                    </button>
                   )
                 })}
               </div>

@@ -160,3 +160,57 @@ body {
 .sticky-call {
   transition: opacity 0.3s, transform 0.3s;
 }
+
+/* Carrousel « La cuisine » : progression sur la pastille active (sync avec le timer) */
+@keyframes cuisine-slide-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.cuisine-slide-dot {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: width 0.35s ease, background 0.25s ease;
+}
+
+.cuisine-slide-dot--inactive {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.cuisine-slide-dot--active {
+  width: 24px;
+  height: 6px;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.cuisine-slide-dot-fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: #fff;
+  animation: cuisine-slide-progress var(--cuisine-slide-ms, 5500ms) linear forwards;
+}
+
+.cuisine-slide-dot-fill--paused {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cuisine-slide-dot-fill {
+    animation: none;
+    transform: scaleX(1);
+  }
+}
