@@ -2,12 +2,12 @@ import { MOSAIC_STRIP } from '../assets'
 
 export function Experience() {
   return (
-    <section style={{ background: '#0a0a0a', padding: '8rem 0' }}>
+    <section id="experience" className="experience-section">
       <div
+        className="experience-intro"
         style={{
           maxWidth: 1200,
           margin: '0 auto 4rem',
-          padding: '0 2rem',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'flex-end',

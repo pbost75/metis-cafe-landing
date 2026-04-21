@@ -6,7 +6,7 @@ export function Menu() {
   const items = MENU_BY_TAB[active]
 
   return (
-    <section id="carte" style={{ padding: '8rem 2rem', background: '#fafafa' }}>
+    <section id="carte" className="section-pad" style={{ background: '#fafafa' }}>
       <div style={{ maxWidth: 900, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <p
@@ -50,6 +50,7 @@ export function Menu() {
           </p>
         </div>
         <div
+          className="menu-tabs-scroll"
           style={{
             display: 'flex',
             gap: 0,
@@ -87,7 +88,7 @@ export function Menu() {
             )
           })}
         </div>
-        <div>
+        <div style={{ minWidth: 0 }}>
           {items.map((item, index) => (
             <div
               key={`${active}-${item.name}-${index}`}
@@ -99,9 +100,10 @@ export function Menu() {
                 borderBottom: index === items.length - 1 ? 'none' : '1px solid #ebebeb',
                 gap: '2rem',
                 animation: 'fadeIn 0.3s ease both',
+                minWidth: 0,
               }}
             >
-              <div style={{ flex: '1 1 0' }}>
+              <div style={{ flex: '1 1 0', minWidth: 0 }}>
                 <p
                   style={{
                     fontFamily: 'var(--font-serif)',

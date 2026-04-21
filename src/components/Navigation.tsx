@@ -18,23 +18,7 @@ export function Navigation() {
 
   return (
     <>
-      <nav
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 100,
-          transition: 'background 0.4s, box-shadow 0.4s',
-          background: 'rgba(10, 10, 10, 0.97)',
-          boxShadow: '0 2px 20px rgba(0, 0, 0, 0.3)',
-          padding: '0 2rem',
-          height: 72,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
+      <nav className="site-header">
         <a
           href="#top"
           onClick={close}

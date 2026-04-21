@@ -51,7 +51,7 @@ const blocks = [
 
 export function Concerts() {
   return (
-    <section id="concerts" className="concert-section" style={{ display: 'flex', height: 'calc(100vh - 72px)' }}>
+    <section id="concerts" className="concert-section">
       <div
         className="concert-photo"
         style={{

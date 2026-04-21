@@ -14,7 +14,7 @@ export function StickyCall() {
   return (
     <a
       href={TEL_HREF}
-      className="sticky-call sticky-call--compact"
+      className="sticky-call sticky-call--compact sticky-call-safe"
       style={{
         position: 'fixed',
         bottom: '1.5rem',

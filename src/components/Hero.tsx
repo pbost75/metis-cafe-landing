@@ -2,18 +2,7 @@ import { HERO_BACKGROUND, TEL_HREF } from '../assets'
 
 export function Hero() {
   return (
-    <section
-      id="top"
-      style={{
-        position: 'relative',
-        height: '100vh',
-        minHeight: 600,
-        overflow: 'hidden',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
+    <section id="top" className="hero-section">
       <div
         className="hero-bg"
         style={{
@@ -38,7 +27,7 @@ export function Hero() {
           position: 'relative',
           zIndex: 10,
           textAlign: 'center',
-          padding: '0 1.5rem',
+          padding: '0 max(1.5rem, env(safe-area-inset-right)) 0 max(1.5rem, env(safe-area-inset-left))',
           maxWidth: 800,
         }}
       >

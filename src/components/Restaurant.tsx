@@ -2,7 +2,7 @@ import { RESTAURANT_SECTION_PHOTO } from '../assets'
 
 export function Restaurant() {
   return (
-    <section id="restaurant" style={{ padding: '8rem 2rem', background: '#fff' }}>
+    <section id="restaurant" className="section-pad" style={{ background: '#fff' }}>
       <div
         className="about-grid"
         style={{
@@ -121,17 +121,7 @@ export function Restaurant() {
               style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '-1.5rem',
-              left: '-1.5rem',
-              background: '#0a0a0a',
-              color: '#fff',
-              padding: '1.5rem',
-              width: 150,
-            }}
-          >
+          <div className="restaurant-rating-badge" style={{ background: '#0a0a0a', color: '#fff', padding: '1.5rem', width: 150 }}>
             <p
               style={{
                 fontFamily: 'var(--font-display)',

@@ -2,7 +2,7 @@ import { MAPS_EMBED_URL, TEL_HREF } from '../assets'
 
 export function Contact() {
   return (
-    <section id="contact" style={{ padding: '8rem 2rem', background: '#0a0a0a' }}>
+    <section id="contact" className="section-pad" style={{ background: '#0a0a0a' }}>
       <div
         className="contact-grid"
         style={{

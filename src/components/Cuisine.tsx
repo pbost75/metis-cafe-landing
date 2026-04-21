@@ -25,7 +25,7 @@ export function Cuisine() {
   }, [active, paused])
 
   return (
-    <section style={{ background: '#fff', padding: '8rem 2rem' }}>
+    <section id="cuisine" className="section-pad" style={{ background: '#fff' }}>
       <div
         className="cuisine-grid"
         style={{
@@ -38,14 +38,7 @@ export function Cuisine() {
         }}
       >
         <div style={{ position: 'relative' }}>
-          <div
-            style={{
-              position: 'absolute',
-              inset: '2rem 2rem -2rem -2rem',
-              background: '#fff9e5',
-              zIndex: 0,
-            }}
-          />
+          <div className="cuisine-deco" />
           <div style={{ position: 'relative', zIndex: 1 }}>
             <div
               role="region"

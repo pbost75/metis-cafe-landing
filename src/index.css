@@ -7,6 +7,7 @@
 /* Base (équivalent au <style> global de l’export Base44) */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -14,10 +15,199 @@ body {
   padding: 0;
   font-family: 'Montserrat', system-ui, sans-serif;
   background: #fff;
+  overflow-x: hidden;
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* Ancres : la section reste visible sous la barre de navigation fixe */
+section[id],
+footer[id] {
+  scroll-margin-top: calc(72px + env(safe-area-inset-top, 0px));
+}
+
+/* Marges latérales cohérentes + encoche / home indicator (iPhone) */
+.section-pad {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+}
+
+@media (min-width: 769px) {
+  .section-pad {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-pad {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: max(1rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1rem, env(safe-area-inset-right, 0px));
+  }
+}
+
+@media (max-width: 480px) {
+  .section-pad {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    padding-left: max(0.875rem, env(safe-area-inset-left, 0px));
+    padding-right: max(0.875rem, env(safe-area-inset-right, 0px));
+  }
+}
+
+.footer-pad {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+}
+
+@media (min-width: 769px) {
+  .footer-pad {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Hero : hauteur lisible sur mobile / paysage (évite min 600px trop rigide) */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: min(100svh, 100vh);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: min(100svh, 100dvh);
+    min-height: 24rem;
+  }
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: max(1rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1rem, env(safe-area-inset-right, 0px));
+  min-height: calc(72px + env(safe-area-inset-top, 0px));
+  height: auto;
+  transition: background 0.4s, box-shadow 0.4s;
+  background: rgba(10, 10, 10, 0.97);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 769px) {
+  .site-header {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.restaurant-rating-badge {
+  position: absolute;
+  bottom: -1.5rem;
+  left: -1.5rem;
+}
+
+@media (max-width: 768px) {
+  .restaurant-rating-badge {
+    left: 0;
+    bottom: -1rem;
+  }
+}
+
+.cuisine-deco {
+  position: absolute;
+  inset: 2rem 2rem -2rem -2rem;
+  background: #fff9e5;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .cuisine-deco {
+    inset: 1rem 0 -1rem 0;
+  }
+}
+
+.menu-tabs-scroll {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.menu-tabs-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.experience-section {
+  background: #0a0a0a;
+  padding-top: 8rem;
+  padding-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .experience-section {
+    padding-top: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-section {
+    padding-top: 4rem;
+  }
+}
+
+.experience-intro {
+  padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+}
+
+@media (min-width: 769px) {
+  .experience-intro {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-intro {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 2rem !important;
+  }
+}
+
+.sticky-call-safe {
+  bottom: max(1.5rem, env(safe-area-inset-bottom, 0px)) !important;
+  right: max(1.5rem, env(safe-area-inset-right, 0px)) !important;
+}
+
+/* Section concerts : plein écran sous la nav (hauteur = viewport − barre − encoche) */
+.concert-section {
+  display: flex;
+  height: calc(100svh - 72px - env(safe-area-inset-top, 0px));
 }
 
 @keyframes fadeUp {
@@ -88,9 +278,18 @@ body {
     grid-template-columns: 1fr !important;
     gap: 3rem !important;
   }
+
+  .about-grid > * {
+    min-width: 0;
+  }
   .cuisine-grid {
     grid-template-columns: 1fr !important;
     gap: 4rem !important;
+  }
+
+  .cuisine-grid > *,
+  .contact-grid > * {
+    min-width: 0;
   }
   .ambiance-strip {
     height: 260px !important;
@@ -98,15 +297,22 @@ body {
   }
   .concert-section {
     flex-direction: column !important;
+    height: auto !important;
+    min-height: 0 !important;
   }
   .concert-photo {
-    min-height: 50vw !important;
+    min-height: 42vh !important;
+    max-height: 55vh !important;
+    flex: 1 1 auto !important;
   }
   .concert-content {
-    padding: 4rem 2rem !important;
+    padding: 4rem max(1.25rem, env(safe-area-inset-left)) 4rem max(1.25rem, env(safe-area-inset-right)) !important;
   }
   .reviews-grid {
     grid-template-columns: 1fr !important;
+  }
+  .reviews-card {
+    padding: 1.75rem !important;
   }
   .contact-grid {
     grid-template-columns: 1fr !important;
@@ -137,14 +343,15 @@ body {
 .mobile-menu-panel {
   position: fixed;
   inset: 0;
-  top: 72px;
+  top: calc(72px + env(safe-area-inset-top, 0px));
   background: rgba(10, 10, 10, 0.98);
   z-index: 99;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 2rem;
+  padding: 2rem max(2rem, env(safe-area-inset-right)) max(2rem, env(safe-area-inset-bottom))
+    max(2rem, env(safe-area-inset-left));
   gap: 1.5rem;
 }
 

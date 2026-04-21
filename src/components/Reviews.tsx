@@ -29,7 +29,7 @@ const reviews = [
 
 export function Reviews() {
   return (
-    <section style={{ padding: '8rem 2rem', background: '#fff' }}>
+    <section id="avis" className="section-pad" style={{ background: '#fff' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
           <p
@@ -62,6 +62,7 @@ export function Reviews() {
           {reviews.map((r) => (
             <div
               key={r.author}
+              className="reviews-card"
               style={{
                 padding: '2.5rem',
                 border: '1px solid #ebebeb',
