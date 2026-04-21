@@ -58,9 +58,9 @@ export function Experience() {
           samedi soir. Voilà le Métis.
         </p>
       </div>
-      <div className="ambiance-strip" style={{ display: 'flex', gap: 3, width: '100%', height: 560 }}>
+      <div className="ambiance-strip">
         {MOSAIC_STRIP.map((item) => (
-          <div key={item.src} style={{ flex: '1 1 0', position: 'relative', overflow: 'hidden' }}>
+          <div key={item.src} className="ambiance-strip__cell">
             <img
               src={item.src}
               alt={item.alt}

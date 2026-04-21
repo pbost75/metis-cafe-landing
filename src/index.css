@@ -4,6 +4,12 @@
   --font-serif: 'Cormorant Garamond', Georgia, serif;
 }
 
+/* Titres Playfair : la partie en italique reste un peu plus légère que le corps du titre (600 → 500) */
+h2 em {
+  font-style: italic;
+  font-weight: 500;
+}
+
 /* Base (équivalent au <style> global de l’export Base44) */
 html {
   scroll-behavior: smooth;
@@ -114,7 +120,14 @@ footer[id] {
   padding-right: max(1rem, env(safe-area-inset-right, 0px));
   min-height: calc(72px + env(safe-area-inset-top, 0px));
   height: auto;
-  transition: background 0.4s, box-shadow 0.4s;
+  transition:
+    background 0.45s ease,
+    box-shadow 0.45s ease;
+  background: transparent;
+  box-shadow: none;
+}
+
+.site-header--solid {
   background: rgba(10, 10, 10, 0.97);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
@@ -124,6 +137,98 @@ footer[id] {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+}
+
+/* Nav type « Sauvage » : burger + libellé à gauche, CTA contour à droite */
+.nav-menu-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0.35rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.nav-burger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.nav-burger-line {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.nav-menu-label {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  line-height: 1;
+}
+
+.nav-cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.35rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.nav-cta:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+}
+
+/* Titre centré : visible uniquement une fois la barre « pleine » (après scroll) */
+.nav-brand-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.site-header--solid .nav-brand-center {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .restaurant-rating-badge {
@@ -199,6 +304,26 @@ footer[id] {
   }
 }
 
+/* Mosaïque : joints blancs entre les photos (fond du conteneur) */
+.ambiance-strip {
+  display: flex;
+  width: 100%;
+  height: auto;
+  gap: 5px;
+  background: #fff;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+/* Ratio un peu moins « tout en hauteur » qu’avant (hauteur fixe 560px) : ~5:6 → un peu plus large visuellement */
+.ambiance-strip__cell {
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 5 / 6;
+}
+
 .sticky-call-safe {
   bottom: max(1.5rem, env(safe-area-inset-bottom, 0px)) !important;
   right: max(1.5rem, env(safe-area-inset-right, 0px)) !important;
@@ -265,15 +390,6 @@ footer[id] {
 }
 
 @media (max-width: 768px) {
-  .nav-desktop {
-    display: none !important;
-  }
-  .nav-cta {
-    display: none !important;
-  }
-  .nav-burger {
-    display: flex !important;
-  }
   .about-grid {
     grid-template-columns: 1fr !important;
     gap: 3rem !important;
@@ -292,8 +408,7 @@ footer[id] {
     min-width: 0;
   }
   .ambiance-strip {
-    height: 260px !important;
-    gap: 2px !important;
+    gap: 4px !important;
   }
   .concert-section {
     flex-direction: column !important;
@@ -327,11 +442,6 @@ footer[id] {
   }
 }
 
-@media (max-width: 480px) {
-  .ambiance-strip {
-    height: 200px !important;
-  }
-}
 
 @media (max-width: 1024px) and (min-width: 769px) {
   .reviews-grid {
@@ -362,6 +472,19 @@ footer[id] {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+.mobile-menu-panel__cta {
+  margin-top: 1rem;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .sticky-call {
