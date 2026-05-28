@@ -45,4 +45,51 @@ export const CUISINE_SLIDES: { src: string; alt: string }[] = [
 export const MAPS_EMBED_URL =
   "https://maps.google.com/maps?q=2+Mail+de+Rodrigues,+L'Ermitage-les-Bains,+97434+Saint-Paul,+La+R%C3%A9union&hl=fr&z=16&ie=UTF8&iwloc=&output=embed"
 
+/** Fiche Google Maps / avis clients (Métis Café, 2 Mail de Rodrigues). */
+export const GOOGLE_REVIEWS_URL =
+  'https://www.google.com/maps/search/?api=1&query=Métis+Café,2+Mail+de+Rodrigues,L%27Ermitage-les-Bains,97434+Saint-Paul,+La+Réunion'
+
+/** Page TripAdvisor — avis (≈ 286 avis). */
+export const TRIPADVISOR_REVIEWS_URL =
+  'https://www.tripadvisor.fr/Restaurant_Review-g298470-d6516263-Reviews-Metis_Cafe-Saint_Gilles_Les_Bains_Arrondissement_of_Saint_Paul.html'
+
+/** Notes moyennes publiques par plateforme (à mettre à jour si besoin). */
+export const REVIEW_PLATFORMS = [
+  {
+    id: 'google',
+    href: GOOGLE_REVIEWS_URL,
+    logoSrc: '/brand/google-logo.png',
+    logoWidth: 92,
+    logoHeight: 30,
+    logoClass: 'reviews-platform-logo__img--google',
+    rating: 4.3,
+    ariaName: 'Google',
+  },
+  {
+    id: 'tripadvisor',
+    href: TRIPADVISOR_REVIEWS_URL,
+    logoSrc: '/brand/tripadvisor-logo.svg',
+    logoWidth: 120,
+    logoHeight: 24,
+    logoClass: 'reviews-platform-logo__img--tripadvisor',
+    rating: 4.0,
+    ariaName: 'TripAdvisor',
+  },
+] as const
+
 export const TEL_HREF = 'tel:+262692862486'
+
+/** Numéro affiché sur le site et dans la popup « Réserver » (desktop). */
+export const PHONE_DISPLAY = '0692 86 24 86'
+
+/** Horaires d'ouverture (section Contact + popup réservation). */
+export const OPENING_HOURS: readonly { days: string; hours: string }[] = [
+  { days: 'Lundi – Samedi', hours: '9h – 23h' },
+  { days: 'Dimanche', hours: '8h30 – 15h30' },
+]
+
+/** Créneaux de service (réservation par téléphone). */
+export const SERVICE_HOURS: readonly { label: string; hours: string }[] = [
+  { label: 'Service midi', hours: '11h30 – 14h' },
+  { label: 'Service soir', hours: '18h30 – 21h' },
+]

@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { trackCtaReserve } from '../lib/gtmEvents'
+import { CallLink } from './CallReservation'
 
 const MENU_LINKS: [string, string][] = [
   ['#restaurant', 'Le restaurant'],
@@ -47,9 +49,9 @@ export function Navigation() {
         <a href="#top" className="nav-brand-center" onClick={close}>
           Métis Café
         </a>
-        <a href="tel:+262692862486" className="nav-cta">
-          Appeler
-        </a>
+        <CallLink className="nav-cta" trackLocation="nav">
+          Réserver
+        </CallLink>
       </nav>
       {open ? (
         <div className="mobile-menu-panel" role="dialog" aria-label="Menu">
@@ -60,10 +62,13 @@ export function Navigation() {
           ))}
           <a
             href="tel:+262692862486"
-            onClick={close}
+            onClick={() => {
+              trackCtaReserve('nav_mobile', 'phone')
+              close()
+            }}
             className="mobile-menu-panel__cta"
           >
-            Appeler
+            Réserver
           </a>
         </div>
       ) : null}

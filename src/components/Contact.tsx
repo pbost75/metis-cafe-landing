@@ -1,4 +1,5 @@
-import { MAPS_EMBED_URL, TEL_HREF } from '../assets'
+import { MAPS_EMBED_URL, OPENING_HOURS, PHONE_DISPLAY } from '../assets'
+import { CallLink } from './CallReservation'
 
 export function Contact() {
   return (
@@ -89,10 +90,7 @@ export function Contact() {
               >
                 Horaires
               </p>
-              {[
-                ['Lundi – Samedi', '9h – 23h'],
-                ['Dimanche', '8h30 – 15h30'],
-              ].map(([d, h]) => (
+              {OPENING_HOURS.map(({ days: d, hours: h }) => (
                 <div
                   key={d}
                   style={{
@@ -127,8 +125,22 @@ export function Contact() {
                 </div>
               ))}
             </div>
-            <a
-              href={TEL_HREF}
+            <p
+              className="contact-reservation-note"
+              style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: '0.95rem',
+                fontWeight: 400,
+                fontStyle: 'italic',
+                color: 'rgba(255,255,255,0.45)',
+                lineHeight: 1.6,
+                margin: '0.25rem 0 0',
+              }}
+            >
+              Les réservations se font par téléphone.
+            </p>
+            <CallLink
+              trackLocation="contact"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -137,7 +149,7 @@ export function Contact() {
                 padding: '1.5rem 2rem',
                 textDecoration: 'none',
                 transition: 'background 0.2s',
-                marginTop: '0.5rem',
+                marginTop: '0.75rem',
               }}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" strokeWidth="2">
@@ -166,10 +178,10 @@ export function Contact() {
                     margin: 0,
                   }}
                 >
-                  0692 86 24 86
+                  {PHONE_DISPLAY}
                 </p>
               </div>
-            </a>
+            </CallLink>
           </div>
         </div>
         <div>

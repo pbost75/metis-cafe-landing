@@ -1,3 +1,4 @@
+import { CallReservationProvider } from './components/CallReservation'
 import { Navigation } from './components/Navigation'
 import { Hero } from './components/Hero'
 import { Restaurant } from './components/Restaurant'
@@ -16,6 +17,7 @@ import { StickyCall } from './components/StickyCall'
  */
 export default function App() {
   return (
+    <CallReservationProvider>
     <main style={{ background: '#fff' }}>
       <Navigation />
       <Hero />
@@ -29,5 +31,6 @@ export default function App() {
       <Footer />
       <StickyCall />
     </main>
+    </CallReservationProvider>
   )
 }

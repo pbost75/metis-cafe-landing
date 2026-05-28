@@ -429,6 +429,9 @@ footer[id] {
   .reviews-card {
     padding: 1.75rem !important;
   }
+  .reviews-platform-row {
+    gap: 1.75rem;
+  }
   .contact-grid {
     grid-template-columns: 1fr !important;
     gap: 3rem !important;
@@ -542,5 +545,286 @@ footer[id] {
   .cuisine-slide-dot-fill {
     animation: none;
     transform: scaleX(1);
+  }
+}
+
+/* Section avis — en-tête + logos plateformes */
+.reviews-intro {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.reviews-intro__eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #888;
+  margin: 0 0 1rem;
+}
+
+.reviews-intro__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4.2vw, 3.15rem);
+  font-weight: 600;
+  color: #0a0a0a;
+  margin: 0 0 1.75rem;
+  letter-spacing: 0.01em;
+}
+
+.reviews-platform-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.75rem;
+}
+
+.reviews-platform-item {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.reviews-platform-item:hover {
+  opacity: 1;
+}
+
+.reviews-platform-score {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #aaa;
+  line-height: 1;
+}
+
+.reviews-platform-score__value {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #666;
+  letter-spacing: 0.02em;
+}
+
+.reviews-platform-score__of {
+  margin-left: 0.05em;
+  font-size: 0.58rem;
+  color: #bbb;
+}
+
+.reviews-platform-logo__img {
+  display: block;
+  width: auto;
+  height: 22px;
+}
+
+.reviews-platform-logo__img--tripadvisor {
+  height: 20px;
+}
+
+.reviews-card__source {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #888;
+  margin: 0;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid transparent;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.reviews-card__source:hover {
+  color: #0a0a0a;
+  border-color: #0a0a0a;
+}
+
+/* Popup « Réserver par téléphone » (desktop uniquement — mobile garde tel:) */
+.call-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(1.25rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-right))
+    max(1.25rem, env(safe-area-inset-bottom)) max(1.25rem, env(safe-area-inset-left));
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  animation: call-modal-fade-in 0.25s ease;
+}
+
+.call-modal {
+  position: relative;
+  width: min(100%, 420px);
+  max-height: min(90vh, 640px);
+  overflow-y: auto;
+  padding: 2rem 2rem 1.75rem;
+  background: #fff;
+  color: #0a0a0a;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+  animation: call-modal-slide-up 0.3s ease;
+}
+
+.call-modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.85rem;
+  border: none;
+  background: transparent;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: #888;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.2s;
+}
+
+.call-modal__close:hover {
+  color: #0a0a0a;
+}
+
+.call-modal__eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #888;
+  margin: 0 0 0.5rem;
+}
+
+.call-modal__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 1.85rem);
+  font-weight: 600;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.call-modal__lead {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: #444;
+  margin: 0 0 1.25rem;
+}
+
+.call-modal__phone {
+  display: block;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: #0a0a0a;
+  text-decoration: none;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e0e0e0;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.call-modal__phone:hover {
+  background: #fafafa;
+  border-color: #0a0a0a;
+}
+
+.call-modal__block {
+  margin-bottom: 1.25rem;
+}
+
+.call-modal__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #888;
+  margin: 0 0 0.6rem;
+}
+
+.call-modal__hours {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #eee;
+}
+
+.call-modal__hours li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #eee;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.call-modal__hours li span:first-child {
+  color: #666;
+}
+
+.call-modal__hours li span:last-child {
+  color: #0a0a0a;
+  text-align: right;
+}
+
+.call-modal__dismiss {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.85rem 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #0a0a0a;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.call-modal__dismiss:hover {
+  background: #222;
+}
+
+@keyframes call-modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes call-modal-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .call-modal-backdrop,
+  .call-modal {
+    animation: none;
   }
 }

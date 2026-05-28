@@ -1,4 +1,6 @@
-import { HERO_BACKGROUND, TEL_HREF } from '../assets'
+import { HERO_BACKGROUND } from '../assets'
+import { trackCtaViewMenu } from '../lib/gtmEvents'
+import { CallLink } from './CallReservation'
 
 export function Hero() {
   return (
@@ -83,8 +85,8 @@ export function Hero() {
             animation: 'fadeUp 0.8s ease 0.8s both',
           }}
         >
-          <a
-            href={TEL_HREF}
+          <CallLink
+            trackLocation="hero"
             style={{
               background: '#fff',
               color: '#0a0a0a',
@@ -98,10 +100,11 @@ export function Hero() {
               transition: 'background 0.2s',
             }}
           >
-            📞 Nous appeler
-          </a>
+            Réserver
+          </CallLink>
           <a
-            href="#restaurant"
+            href="#carte"
+            onClick={() => trackCtaViewMenu('hero')}
             style={{
               background: 'transparent',
               color: '#fff',
@@ -116,7 +119,7 @@ export function Hero() {
               transition: 'border-color 0.2s, color 0.2s',
             }}
           >
-            Découvrir
+            Voir la carte
           </a>
         </div>
       </div>

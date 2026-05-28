@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { TEL_HREF } from '../assets'
+import { CallLink } from './CallReservation'
 
 export function StickyCall() {
   const [visible, setVisible] = useState(false)
@@ -12,8 +12,8 @@ export function StickyCall() {
   }, [])
 
   return (
-    <a
-      href={TEL_HREF}
+    <CallLink
+      trackLocation="sticky"
       className="sticky-call sticky-call--compact sticky-call-safe"
       style={{
         position: 'fixed',
@@ -45,8 +45,8 @@ export function StickyCall() {
           textTransform: 'uppercase',
         }}
       >
-        Appeler
+        Réserver
       </span>
-    </a>
+    </CallLink>
   )
 }
