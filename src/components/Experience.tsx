@@ -1,72 +1,40 @@
 import { MOSAIC_STRIP } from '../assets'
+import { Reveal, RevealGroup } from './Reveal'
 
 export function Experience() {
   return (
     <section id="experience" className="experience-section">
-      <div
-        className="experience-intro"
-        style={{
-          maxWidth: 1200,
-          margin: '0 auto 4rem',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'flex-end',
-          flexWrap: 'wrap',
-          gap: '1.5rem',
-        }}
-      >
-        <div>
-          <p
-            style={{
-              fontFamily: 'Montserrat, sans-serif',
-              fontSize: '0.65rem',
-              fontWeight: 600,
-              letterSpacing: '0.3em',
-              textTransform: 'uppercase',
-              color: '#666',
-              marginBottom: '1rem',
-            }}
-          >
-            L&apos;expérience
-          </p>
-          <h2
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2.1rem, 4.2vw, 3.15rem)',
-              fontWeight: 600,
-              color: '#fff',
-              lineHeight: 1.2,
-              margin: 0,
-              letterSpacing: '0.01em',
-            }}
-          >
-            Vivre le Métis
-          </h2>
+      {/* Zone texte + bande noire vide en dessous (les photos mordent uniquement là) */}
+      <div className="experience-intro">
+        <div className="experience-intro__grid">
+          <div className="experience-intro__title">
+            <RevealGroup>
+              <Reveal>
+                <p className="experience-intro__eyebrow">L&apos;expérience</p>
+                <h2 className="experience-intro__heading">Vivre le Métis</h2>
+              </Reveal>
+            </RevealGroup>
+          </div>
+          <Reveal>
+            <p className="experience-intro__lede">
+              Une terrasse à l&apos;ombre des arbres, une cuisine généreuse, et le son d&apos;une guitare le
+              samedi soir. Voilà le Métis.
+            </p>
+          </Reveal>
         </div>
-        <p
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            fontSize: '1.125rem',
-            fontWeight: 300,
-            color: '#888',
-            lineHeight: 1.8,
-            maxWidth: 380,
-            margin: 0,
-          }}
-        >
-          Une terrasse à l&apos;ombre des arbres, une cuisine généreuse, et le son d&apos;une guitare le
-          samedi soir. Voilà le Métis.
-        </p>
       </div>
+
       <div className="ambiance-strip">
         {MOSAIC_STRIP.map((item) => (
-          <div key={item.src} className="ambiance-strip__cell">
-            <img
-              src={item.src}
-              alt={item.alt}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s' }}
-            />
-          </div>
+          <Reveal
+            key={item.src}
+            variant="from-bottom"
+            image
+            media
+            className="ambiance-strip__cell"
+          >
+            <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+          </Reveal>
         ))}
       </div>
     </section>

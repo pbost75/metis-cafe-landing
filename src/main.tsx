@@ -2,11 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import { getGtmId, initGtm } from './lib/gtm.ts'
+import { initAnalytics } from './lib/analytics.ts'
 
-// Google Tag Manager (activé si VITE_GTM_ID est défini dans .env ou sur Vercel)
-const gtmId = getGtmId()
-if (gtmId) initGtm(gtmId)
+// GTM (recommandé) ou GA4 direct — voir .env.example
+initAnalytics()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -1,4 +1,5 @@
 import { CONCERT_SECTION_PHOTO } from '../assets'
+import { Reveal, RevealGroup } from './Reveal'
 
 function IconMusic() {
   return (
@@ -52,103 +53,47 @@ const blocks = [
 export function Concerts() {
   return (
     <section id="concerts" className="concert-section">
-      <div
-        className="concert-photo"
-        style={{
-          flex: '2 1 40%',
-          backgroundImage: `url("${CONCERT_SECTION_PHOTO}")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          minHeight: '60vh',
-        }}
-      />
-      <div
-        className="concert-content"
-        style={{
-          flex: '3 1 60%',
-          background: '#0a0a0a',
-          display: 'flex',
-          alignItems: 'center',
-          padding: '6rem 5rem',
-        }}
-      >
-        <div>
-          <p
-            style={{
-              fontFamily: 'Montserrat, sans-serif',
-              fontSize: '0.65rem',
-              fontWeight: 600,
-              letterSpacing: '0.3em',
-              textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.4)',
-              margin: '0 0 1.2rem',
-            }}
-          >
-            Chaque samedi soir
-          </p>
-          <h2
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2.25rem, 4.2vw, 3.55rem)',
-              fontWeight: 600,
-              color: '#fff',
-              lineHeight: 1.15,
-              margin: '0 0 1.8rem',
-              letterSpacing: '0.01em',
-            }}
-          >
-            La musique
-            <br />
-            <em>entre en scène</em>
-          </h2>
-          <p
-            style={{
-              fontFamily: 'Montserrat, sans-serif',
-              fontSize: '1.125rem',
-              fontWeight: 300,
-              color: 'rgba(255,255,255,0.7)',
-              lineHeight: 1.9,
-              margin: '0 0 2.5rem',
-            }}
-          >
-            Chaque samedi soir, le Métis Café se transforme en scène de concert. Artistes locaux, musiques du
-            monde, jazz, pop française — des soirées uniques dans un cadre tropical incomparable.
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem' }}>
-            {blocks.map(({ Icon, title, text }) => (
-              <div key={title} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <span style={{ marginTop: '0.2rem', flexShrink: 0 }}>
-                  <Icon />
-                </span>
-                <div>
-                  <p
-                    style={{
-                      fontFamily: 'var(--font-display)',
-                      fontSize: '1.125rem',
-                      fontWeight: 600,
-                      color: '#fff',
-                      margin: '0 0 0.25rem',
-                    }}
-                  >
-                    {title}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: 'Montserrat, sans-serif',
-                      fontSize: '1.125rem',
-                      fontWeight: 300,
-                      color: 'rgba(255,255,255,0.55)',
-                      lineHeight: 1.7,
-                      margin: 0,
-                    }}
-                  >
-                    {text}
-                  </p>
-                </div>
-              </div>
-            ))}
+      <Reveal variant="left" image className="concert-photo">
+        <div
+          className="concert-photo__frame"
+          style={{ backgroundImage: `url("${CONCERT_SECTION_PHOTO}")` }}
+          role="img"
+          aria-label="Scène de concert au Métis Café"
+        />
+      </Reveal>
+
+      <div className="concert-content">
+        <RevealGroup>
+          <div className="concert-content__inner">
+            <Reveal>
+              <p className="concert-content__eyebrow">Chaque samedi soir</p>
+              <h2 className="concert-content__title">
+                La musique
+                <br />
+                <em>entre en scène</em>
+              </h2>
+              <p className="concert-content__lede">
+                Chaque samedi soir, le Métis Café se transforme en scène de concert. Artistes locaux, musiques du
+                monde, jazz, pop française — des soirées uniques dans un cadre tropical incomparable.
+              </p>
+            </Reveal>
+            <div className="concert-features">
+              {blocks.map(({ Icon, title, text }) => (
+                <Reveal key={title}>
+                  <div className="concert-feature">
+                    <span className="concert-feature__icon" aria-hidden>
+                      <Icon />
+                    </span>
+                    <div>
+                      <p className="concert-feature__title">{title}</p>
+                      <p className="concert-feature__text">{text}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
-        </div>
+        </RevealGroup>
       </div>
     </section>
   )

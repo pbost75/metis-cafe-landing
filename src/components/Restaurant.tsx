@@ -1,4 +1,5 @@
 import { RESTAURANT_SECTION_PHOTO } from '../assets'
+import { Reveal, RevealGroup } from './Reveal'
 
 export function Restaurant() {
   return (
@@ -14,7 +15,8 @@ export function Restaurant() {
           alignItems: 'center',
         }}
       >
-        <div>
+        <RevealGroup>
+          <Reveal>
           <p
             style={{
               fontFamily: 'Montserrat, sans-serif',
@@ -70,6 +72,8 @@ export function Restaurant() {
             Notre cuisine mêle saveurs françaises et influences créoles, avec des produits frais du marché
             local. Une cuisine sincère, généreuse, pensée pour le plaisir partagé.
           </p>
+          </Reveal>
+          <Reveal>
           <div
             style={{
               display: 'grid',
@@ -112,16 +116,22 @@ export function Restaurant() {
               </div>
             ))}
           </div>
-        </div>
-        <div style={{ position: 'relative' }}>
-          <div style={{ width: '100%', paddingTop: '120%', position: 'relative', overflow: 'hidden' }}>
-            <img
-              src={RESTAURANT_SECTION_PHOTO}
-              alt="Restaurant Métis Café"
-              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-          </div>
-          <div className="restaurant-rating-badge" style={{ background: '#0a0a0a', color: '#fff', padding: '1.5rem', width: 150 }}>
+          </Reveal>
+        </RevealGroup>
+        <div className="about-grid__media" style={{ position: 'relative' }}>
+          <Reveal variant="left" image>
+            <div style={{ width: '100%', paddingTop: '120%', position: 'relative', overflow: 'hidden' }}>
+              <img
+                src={RESTAURANT_SECTION_PHOTO}
+                alt="Restaurant Métis Café"
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
+          </Reveal>
+          <div
+            className="restaurant-rating-badge"
+            style={{ background: '#0a0a0a', color: '#fff', padding: '1.5rem', width: 150 }}
+          >
             <p
               style={{
                 fontFamily: 'var(--font-display)',

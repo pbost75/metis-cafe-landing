@@ -103,17 +103,32 @@ export function Footer() {
           gap: '1rem',
         }}
       >
-        <p
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            fontSize: '0.6rem',
-            fontWeight: 300,
-            color: '#333',
-            margin: 0,
-          }}
-        >
-          © 2025 Métis Café · Tous droits réservés
-        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem 1.25rem', alignItems: 'center' }}>
+          <p
+            style={{
+              fontFamily: 'Montserrat, sans-serif',
+              fontSize: '0.6rem',
+              fontWeight: 300,
+              color: '#333',
+              margin: 0,
+            }}
+          >
+            © 2025 Métis Café · Tous droits réservés
+          </p>
+          <a
+            href="/politique-de-confidentialite.html"
+            style={{
+              fontFamily: 'Montserrat, sans-serif',
+              fontSize: '0.6rem',
+              fontWeight: 400,
+              color: '#444',
+              textDecoration: 'none',
+              letterSpacing: '0.06em',
+            }}
+          >
+            Politique de confidentialité
+          </a>
+        </div>
         <a
           href={TEL_HREF}
           style={{

@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react'
 import { CUISINE_SLIDES } from '../assets'
+import { Reveal, RevealGroup } from './Reveal'
+import { RevealSplitMedia } from './RevealSplitMedia'
 
 const SLIDE_INTERVAL_MS = 5500
 
@@ -37,9 +39,7 @@ export function Cuisine() {
           alignItems: 'center',
         }}
       >
-        <div style={{ position: 'relative' }}>
-          <div className="cuisine-deco" />
-          <div style={{ position: 'relative', zIndex: 1 }}>
+        <RevealSplitMedia>
             <div
               role="region"
               aria-roledescription="carrousel"
@@ -109,9 +109,10 @@ export function Cuisine() {
                 })}
               </div>
             </div>
-          </div>
-        </div>
+        </RevealSplitMedia>
+        <RevealGroup>
         <div style={{ paddingBottom: '2.5rem' }}>
+          <Reveal>
           <p
             style={{
               fontFamily: 'Montserrat, sans-serif',
@@ -156,7 +157,9 @@ export function Cuisine() {
             l&apos;Ermitage. L&apos;ambiance est simple, conviviale, toujours animée par une équipe aux petits
             soins qui aime voir les gens se régaler.
           </p>
+          </Reveal>
         </div>
+        </RevealGroup>
       </div>
     </section>
   )

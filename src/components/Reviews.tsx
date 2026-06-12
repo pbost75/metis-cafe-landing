@@ -1,4 +1,5 @@
 import { GOOGLE_REVIEWS_URL, REVIEW_PLATFORMS, TRIPADVISOR_REVIEWS_URL } from '../assets'
+import { Reveal, RevealGroup } from './Reveal'
 
 /** Affiche la note au format français (4,3). */
 function formatRating(value: number): string {
@@ -42,9 +43,12 @@ export function Reviews() {
   return (
     <section id="avis" className="section-pad" style={{ background: '#fff' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <div className="reviews-intro">
+        <RevealGroup className="reviews-intro">
+          <Reveal>
           <p className="reviews-intro__eyebrow">Ce qu&apos;ils en disent</p>
           <h2 className="reviews-intro__title">+280 avis · Note 4/5</h2>
+          </Reveal>
+          <Reveal>
           <div className="reviews-platform-row">
             {REVIEW_PLATFORMS.map((platform) => (
               <a
@@ -70,11 +74,14 @@ export function Reviews() {
               </a>
             ))}
           </div>
-        </div>
+          </Reveal>
+        </RevealGroup>
         <div className="reviews-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
-          {reviews.map((r) => (
-            <div
+          {reviews.map((r, index) => (
+            <Reveal
               key={r.author}
+              variant="up"
+              delay={Math.min(index, 5) as 0 | 1 | 2 | 3 | 4 | 5}
               className="reviews-card"
               style={{
                 padding: '2.5rem',
@@ -122,7 +129,7 @@ export function Reviews() {
                   {r.source}
                 </a>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

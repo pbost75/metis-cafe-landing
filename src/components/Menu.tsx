@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { MENU_BY_TAB, MENU_TABS, type MenuTabId } from '../menuData'
+import { Reveal, RevealGroup } from './Reveal'
 
 export function Menu() {
   const [active, setActive] = useState<MenuTabId>('tapas')
@@ -8,7 +9,9 @@ export function Menu() {
   return (
     <section id="carte" className="section-pad" style={{ background: '#fafafa' }}>
       <div style={{ maxWidth: 900, margin: '0 auto' }}>
+        <RevealGroup className="menu-intro">
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <Reveal>
           <p
             style={{
               fontFamily: 'Montserrat, sans-serif',
@@ -48,7 +51,10 @@ export function Menu() {
             Produits frais, recettes du marché local, influences françaises et créoles. La carte évolue
             selon les saisons.
           </p>
+          </Reveal>
         </div>
+        </RevealGroup>
+        <Reveal>
         <div
           className="menu-tabs-scroll"
           style={{
@@ -99,7 +105,7 @@ export function Menu() {
                 padding: '1.5rem 0',
                 borderBottom: index === items.length - 1 ? 'none' : '1px solid #ebebeb',
                 gap: '2rem',
-                animation: 'fadeIn 0.3s ease both',
+                animation: 'fadeIn 2s cubic-bezier(0.22, 1, 0.36, 1) both',
                 minWidth: 0,
               }}
             >
@@ -145,6 +151,7 @@ export function Menu() {
             </div>
           ))}
         </div>
+        </Reveal>
         <p
           style={{
             fontFamily: 'Montserrat, sans-serif',

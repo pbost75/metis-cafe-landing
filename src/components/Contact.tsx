@@ -1,5 +1,6 @@
 import { MAPS_EMBED_URL, OPENING_HOURS, PHONE_DISPLAY } from '../assets'
 import { CallLink } from './CallReservation'
+import { Reveal, RevealGroup } from './Reveal'
 
 export function Contact() {
   return (
@@ -15,7 +16,9 @@ export function Contact() {
           alignItems: 'start',
         }}
       >
+        <RevealGroup>
         <div>
+          <Reveal>
           <p
             style={{
               fontFamily: 'Montserrat, sans-serif',
@@ -183,7 +186,10 @@ export function Contact() {
               </div>
             </CallLink>
           </div>
+          </Reveal>
         </div>
+        </RevealGroup>
+        <Reveal>
         <div>
           <div style={{ width: '100%', paddingTop: '100%', position: 'relative', overflow: 'hidden', background: '#1a1a1a' }}>
             <iframe
@@ -229,6 +235,7 @@ export function Contact() {
             </svg>
           </a>
         </div>
+        </Reveal>
       </div>
     </section>
   )

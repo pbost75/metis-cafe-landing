@@ -145,7 +145,7 @@ export function Hero() {
             textTransform: 'uppercase',
           }}
         >
-          Scroll
+          Découvrir
         </span>
         <div
           style={{
