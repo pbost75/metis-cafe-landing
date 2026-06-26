@@ -1,5 +1,5 @@
 /** Image de fond du hero : fichier dans public/hero/ */
-export const HERO_BACKGROUND = '/hero/imgi_17_cc9239c91_photo-bg-metis-cafe.png'
+export const HERO_BACKGROUND = '/hero/imgi_17_cc9239c91_photo-bg-metis-cafe.webp'
 
 /** Photo « Notre histoire » (colonne droite) : fichier dans public/restaurant/ */
 export const RESTAURANT_SECTION_PHOTO =

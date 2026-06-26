@@ -73,8 +73,9 @@ export function Concerts() {
                 <em>entre en scène</em>
               </h2>
               <p className="concert-content__lede">
-                Chaque samedi soir, le Métis Café se transforme en scène de concert. Artistes locaux, musiques du
-                monde, jazz, pop française — des soirées uniques dans un cadre tropical incomparable.
+                Tous les samedis, de 19h30 à 21h30, le Métis passe en mode live. On pousse un peu les tables, on met
+                l'ambiance et la soirée commence ! De la bonne musique, des verres qui s'entrechoquent, des gens qui
+                rigolent ; bref, juste un bon moment comme on les aime.
               </p>
             </Reveal>
             <div className="concert-features">
