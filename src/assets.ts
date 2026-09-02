@@ -77,10 +77,10 @@ export const REVIEW_PLATFORMS = [
   },
 ] as const
 
-export const TEL_HREF = 'tel:+262692862486'
+export const TEL_HREF = 'tel:+262692676700'
 
 /** Numéro affiché sur le site et dans la popup « Réserver » (desktop). */
-export const PHONE_DISPLAY = '0692 86 24 86'
+export const PHONE_DISPLAY = '0692 67 67 00'
 
 /** Horaires d'ouverture (section Contact + popup réservation). */
 export const OPENING_HOURS: readonly { days: string; hours: string }[] = [

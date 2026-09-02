@@ -140,7 +140,7 @@ export function Footer() {
             letterSpacing: '0.1em',
           }}
         >
-          0692 86 24 86
+          0692 67 67 00
         </a>
       </div>
     </footer>

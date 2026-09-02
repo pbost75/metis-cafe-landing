@@ -99,7 +99,7 @@ export function Navigation() {
             ))}
           </nav>
           <a
-            href="tel:+262692862486"
+            href="tel:+262692676700"
             onClick={() => {
               trackCtaReserve('nav_mobile', 'phone')
               close()
