@@ -14,7 +14,7 @@ export const CONCERT_SECTION_PHOTO =
  * (copie de le-metis-cafe/assets/mosaic — ordre = chef, convivialité, terrasse, client).
  */
 export const MOSAIC_STRIP: { src: string; alt: string }[] = [
-  { src: '/mosaic/5128aa07d_DSCF4780-0.png', alt: 'Le chef en cuisine au Métis Café' },
+  { src: '/mosaic/5128aa07d_DSCF4780-0.webp', alt: 'Le chef en cuisine au Métis Café' },
   {
     src: '/mosaic/bd87de8e4_imgi_14_626277925_17948089029098110_7489075530071709773_n.jpg',
     alt: 'Un toast entre amis au Métis Café',
@@ -34,8 +34,8 @@ export const MOSAIC_STRIP: { src: string; alt: string }[] = [
  * (copie de le-metis-cafe/assets/slider — ajoute ou remplace les fichiers puis ajuste cette liste si besoin).
  */
 export const CUISINE_SLIDES: { src: string; alt: string }[] = [
-  { src: '/slider/06d9a202c_DSCF4840-8.png', alt: 'Dessert et pâtisserie au Métis Café' },
-  { src: '/slider/0ea4a009e_DSCF4905-2.png', alt: 'Plat et dressage au Métis Café' },
+  { src: '/slider/06d9a202c_DSCF4840-8.webp', alt: 'Dessert et pâtisserie au Métis Café' },
+  { src: '/slider/0ea4a009e_DSCF4905-2.webp', alt: 'Plat et dressage au Métis Café' },
   { src: '/slider/02b6d9d61_imgi_30_576599694_17936714103098110_7719843453968648961_n.jpg', alt: 'Ambiance au Métis Café' },
   { src: '/slider/39d49b29a_imgi_19_611252034_17943249816098110_1870459204352139755_n.jpg', alt: 'Moment au restaurant Métis Café' },
   { src: '/slider/dc2392906_imgi_25_587290984_18075533210586352_5234415506079340404_n.jpg', alt: 'Métis Café — brasserie à l’Ermitage' },
