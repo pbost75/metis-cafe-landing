@@ -1,6 +1,7 @@
 import { CallReservationProvider } from './components/CallReservation'
 import { Navigation } from './components/Navigation'
 import { Hero } from './components/Hero'
+import { TrustindexReviews } from './components/TrustindexReviews'
 import { Restaurant } from './components/Restaurant'
 import { Cuisine } from './components/Cuisine'
 import { Experience } from './components/Experience'
@@ -21,6 +22,7 @@ export default function App() {
     <main style={{ background: '#fff' }}>
       <Navigation />
       <Hero />
+      <TrustindexReviews />
       <Restaurant />
       <Cuisine />
       <Experience />
