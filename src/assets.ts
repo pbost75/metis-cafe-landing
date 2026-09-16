@@ -62,7 +62,7 @@ export const REVIEW_PLATFORMS = [
     logoWidth: 92,
     logoHeight: 30,
     logoClass: 'reviews-platform-logo__img--google',
-    rating: 4.3,
+    rating: 4.4,
     ariaName: 'Google',
   },
   {
