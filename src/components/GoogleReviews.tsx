@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
 import {
   GOOGLE_BUSINESS_SUMMARY,
   GOOGLE_PLACE_URL,
@@ -42,17 +42,30 @@ function GoogleMark({ size = 18 }: { size?: number }) {
   )
 }
 
+const STAR_PATH = 'M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z'
+
+/** Étoiles arrondies à la demi-étoile, comme Google (4,4 → 4 étoiles et demie). */
 function Stars({ rating, size = 14 }: { rating: number; size?: number }) {
+  const clipId = `star${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`
+  const rounded = Math.round(rating * 2) / 2
   return (
-    <span className="greviews-stars" role="img" aria-label={`${rating} étoiles sur 5`}>
-      {[1, 2, 3, 4, 5].map((i) => (
-        <svg key={i} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            fill={i <= Math.round(rating) ? '#FBBC04' : '#e3e3e3'}
-            d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"
-          />
-        </svg>
-      ))}
+    <span className="greviews-stars" role="img" aria-label={`${rating.toLocaleString('fr-FR')} étoiles sur 5`}>
+      {[1, 2, 3, 4, 5].map((i) => {
+        const fill = Math.min(1, Math.max(0, rounded - (i - 1)))
+        return (
+          <svg key={i} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#e3e3e3" d={STAR_PATH} />
+            {fill > 0 ? (
+              <>
+                <clipPath id={`${clipId}-${i}`}>
+                  <rect x="0" y="0" width={24 * fill} height="24" />
+                </clipPath>
+                <path fill="#FBBC04" d={STAR_PATH} clipPath={`url(#${clipId}-${i})`} />
+              </>
+            ) : null}
+          </svg>
+        )
+      })}
     </span>
   )
 }
